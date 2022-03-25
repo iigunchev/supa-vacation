@@ -1,0 +1,36 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// npx prisma generate            necessary to run this command every time you edit your Prisma Schema to reflect the changes in your generated Prisma Client code
+
+model Experience {
+  id            String    @id @ default(cuid())
+  title         String
+  description   String
+  location      String
+  group         String
+  level         String
+  dates         String
+  price         Int
+  supports      Int
+  booked        Int  
+  photos        String[]
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model User {
+  id            Int       @id @default(autoincrement())
+  firstName     String
+  lastName      String
+  email         String    @unique
+  profileImg    String
+  role          String
+}

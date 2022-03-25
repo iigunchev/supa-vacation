@@ -3,6 +3,14 @@ import Grid from '@/components/Grid';
 
 import homes from 'data.json';
 
+export async function getServerSideProps() {
+  return {
+    props: {
+      // props for the Home component
+    },
+  };
+}
+
 export default function Home() {
   return (
     <Layout>
